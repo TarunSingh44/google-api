@@ -1,0 +1,48 @@
+name: Deploying
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to production ec2 instance
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ec2-34-212-132-8.us-west-2.compute.amazonaws.com
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_PRODUCTION_PRIVATE_KEY }}
+          script: |
+            echo "Kill all the running PM2 actions =========================================="
+            pm2 kill
+
+            echo "Jump to user folder =========================================="
+            cd /home/ec2-user/
+
+            echo "Check if the codebase has been cloned =========================================="
+            PROJECT_DIRECTORY=/home/ec2-user/decentral-api
+
+            if [ ! -d "$PROJECT_DIRECTORY" ]; then
+            echo "Empty Server, Cloning repository now =========================================="
+            git clone git@github.com:ondecentral/decentral-api.git -b main
+            echo "Project has been cloned =========================================="
+            fi
+
+            echo "Entering the app folder =========================================="
+            cd decentral-api
+
+            echo "Get Codebase Updates from git =========================================="
+            git stash
+            git pull
+
+            echo "Installing project dependencies =========================================="
+            npm install
+
+            echo "Restarting the server =========================================="
+            npm run start
+            echo "Deployment Successful =========================================="

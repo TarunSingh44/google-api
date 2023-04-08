@@ -1,0 +1,19 @@
+{
+    "userId": 1,
+    "industry": "Education",
+    "description": "This is sample description",
+    "keywords": [
+        "this",
+        "is",
+        "a",
+        "sample",
+        "for",
+        "keywords"
+    ],
+    "campaigns" : ["Google",'Instagram'],
+    "selectedDates": [
+        1674635283634,
+        1674635283656,
+        1674635283645
+    ]
+}

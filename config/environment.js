@@ -1,0 +1,34 @@
+/* Map each environment variable to an object property
+ * for better usage
+ * */
+module.exports = {
+	DATABASE_URL: process.env.DATABASE_URL,
+	NODE_ENV: process.env.NODE_ENV,
+	SPACES_SECRET: process.env.SPACES_SECRET,
+	ONESIGNAL_REST_API_KEY: process.env.ONESIGNAL_REST_API_KEY,
+	TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
+	TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
+	EMAIL_SMTP_DOMAIN_MAILGUN: process.env.EMAIL_SMTP_DOMAIN_MAILGUN,
+	EMAIL_SMTP_API_MAILGUN: process.env.EMAIL_SMTP_API_MAILGUN,
+	EMAIL_FROM_ADDRESS: process.env.EMAIL_FROM_ADDRESS,
+	PORT: process.env.PORT,
+	JWT_SECRET: process.env.JWT_SECRET,
+	JWT_EXPIRATION_IN_MINUTES: process.env.JWT_EXPIRATION_IN_MINUTES,
+	SQUARE_ACCESS_TOKEN: process.env.SQUARE_ACCESS_TOKEN,
+	SQUARE_APPLICATION_ID: process.env.SQUARE_APPLICATION_ID,
+	SQUARE_LOCATION_ID: process.env.SQUARE_LOCATION_ID,
+	SQUARE_REDIRECT_URL: process.env.SQUARE_REDIRECT_URL,
+	SQUARE_SIGNATURE: process.env.SQUARE_SIGNATURE,
+	SQUARE_WEBHOOK_URL: process.env.SQUARE_WEBHOOK_URL,
+	WEB_APP_URL: process.env.WEB_APP_URL,
+	MIXPANEL_KEY: process.env.MIXPANEL_KEY,
+	API_URL: process.env.API_URL,
+
+	// Google Ads API
+	//DEVELOPER_TOKEN: process.env.DEVELOPER_TOKEN,
+	//CLIENT_ID: process.env.CLIENT_ID,
+	//CLIENT_SECRET: process.env.CLIENT_SECRET,
+	//REFRESH_TOKEN: process.env.REFRESH_TOKEN,
+	//CUSTOMER_ID: process.env.CUSTOMER_ID,
+	//access_token: process.env.access_token,
+};
